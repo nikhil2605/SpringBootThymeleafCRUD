@@ -1,0 +1,46 @@
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row col-md-7 table-responsive">
+			<table id="userTable" class="table">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Age</th>
+						<th>Date of Birth</th>
+						<th>Email</th>
+						<th>Password</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:if="${users.empty}">
+						<td colspan="2">No Users Available</td>
+					</tr>
+					<tr th:each="user, rowStat: ${users}" th:style="${rowStat.odd} ? 'color: red' : 'color: blue;'">
+
+						<td><span th:text="${user.userName}"></span></td>
+						<td><span th:text="${user.age}"></span></td>
+						<td><span th:text="${#dates.format(user.dob, 'dd-MMM-yyyy')}"></span></td>
+						<td><span th:text="${user.email}"></span></td>
+						<td><span th:text="${user.password}"></span></td>
+						
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+</body>
+</html>
