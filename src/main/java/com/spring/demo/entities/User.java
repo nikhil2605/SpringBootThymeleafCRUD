@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class User {
@@ -17,16 +18,19 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@NotBlank(message = "Name is mandatory")
 	@Column(name = "USER_NAME")
 	private String userName;
 
 	@Min(value = 10, message = "Age should be greater than 10")
 	@Column(name = "AGE")
 	private int age;
-
+	
+	@NotBlank(message = "Email is mandatory")
 	@Column(name = "EMAIL")
 	private String email;
 
+	@NotBlank(message = "Password is mandatory")
 	@Column(name = "PASSWORD")
 	private String password;
 

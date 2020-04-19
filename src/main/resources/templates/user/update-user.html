@@ -1,0 +1,35 @@
+<html>
+<head>
+
+</head>
+<body>
+<form action="#" th:action="@{/users/update/{id}(id=${user.id})}"  th:object="${user}"  method="post">    
+    <label for="name">Name</label> 
+    <input type="text" th:field="*{userName}" id="userName" placeholder="Name">
+		<span th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"></span>
+	<br/>
+	<label for="age">Age</label>
+    <input type="text" th:field="*{age}" id="age" placeholder="Age">
+   		 <span th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></span>
+   			<br/>
+   		 
+   	<label for="dob">Date of Birth</label>
+    <input type="Date" th:field="*{dob}" id="dob" placeholder="Date of Birth">
+   		 <span th:if="${#fields.hasErrors('dob')}" th:errors="*{dob}"></span>
+			<br/>
+		
+    <label for="email">Email</label>
+    <input type="text" th:field="*{email}" id="email" placeholder="Email">
+   		 <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+   		 	<br/>
+   		 
+   	<label for="password">Password</label>
+    <input type="password" th:field="*{password}" id="password" placeholder="Password">
+   		 <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+    	<br/>
+    
+    <input type="submit" value="Update User">  
+     
+</form>
+</body>
+</html>
